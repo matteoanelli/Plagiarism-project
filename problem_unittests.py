@@ -117,6 +117,7 @@ def test_lcs(df, lcs_word):
         # calc lcs
         val = lcs_word(answer_text, source_text)
         results.append(val)
+    print(result)
         
     # check correct results
     assert all(np.isclose(results, lcs_vals, rtol=1e-05)), 'LCS calculations are incorrect.'
