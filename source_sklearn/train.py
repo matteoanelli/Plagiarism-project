@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.externals import joblib
 
 ## TODO: Import any additional libraries you need to define a model
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # Provided model load function
 def model_fn(model_dir):
@@ -31,6 +31,14 @@ if __name__ == '__main__':
     
     # Here we set up an argument parser to easily access the parameters
     parser = argparse.ArgumentParser()
+    
+    # Model Parameters
+    parser.add_argument('--max_depth', type=int, default=5, metavar='N',
+                        help='mac_depth (default: 5)')
+    parser.add_argument('--n_estimators', type=int, default=4, metavar='N',
+                        help='n_estimators (default: 4)')
+    
+    
 
     # SageMaker parameters, like the directories for training data and saving models; set automatically
     # Do not need to change
@@ -56,7 +64,7 @@ if __name__ == '__main__':
     
 
     ## TODO: Define a model 
-    model = DecisionTreeClassifier(max_depth=5)
+    model = RandomForestClassifier(max_depth=args.max_depth, n_estimators=args.n_estimators)
     
     
     ## TODO: Train the model
