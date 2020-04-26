@@ -7,7 +7,8 @@ import pandas as pd
 from sklearn.externals import joblib
 
 ## TODO: Import any additional libraries you need to define a model
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
+
 # Provided model load function
 def model_fn(model_dir):
     """Load model from the model_dir. This is the same model that is saved
@@ -63,7 +64,7 @@ if __name__ == '__main__':
     
 
     ## TODO: Define a model 
-    model = SVC()
+    model = LinearSVC()
     
     
     ## TODO: Train the model
