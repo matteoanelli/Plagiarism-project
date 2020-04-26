@@ -1,0 +1,6 @@
+__MACOSX
+.ipynb_checkpoints
+data
+data.zip
+__pycache__/
+plagiarism_data/
